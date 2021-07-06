@@ -1,0 +1,13 @@
+on startup, open menu
+    menu will ask if you want to make a new, view, or delete a list
+        new will pull up a new menu and ask for name
+        view will pull up the main screen and look at all of the lists
+        delete will ask you for the name of the list to delete
+            it will ask if you're sure before it deletes
+    after doing any of the options, the main screen will be pulled up
+        main screen will have the ability to
+            add a list or item
+                add item will pull up a new menu and ask for name, date, and description
+            view all the lists
+            delete an item or list
+                it will ask if you're sure before it deletes

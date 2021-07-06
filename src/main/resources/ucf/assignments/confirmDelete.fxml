@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="85.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.confirmDelete">
+   <children>
+      <Label layoutX="18.0" layoutY="14.0" text="Are you sure you would like to remove this?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="yes" layoutX="78.0" layoutY="43.0" mnemonicParsing="false" onAction="#deleteYes" text="Yes" />
+      <Button fx:id="no" layoutX="194.0" layoutY="43.0" mnemonicParsing="false" onAction="#deleteNo" text="No" />
+   </children>
+</AnchorPane>

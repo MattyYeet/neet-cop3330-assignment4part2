@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.whichList">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="600.0">
+         <items>
+            <Label text="Which list would you like to access?" />
+            <Button alignment="CENTER" mnemonicParsing="false" text="Select" translateX="340.0" />
+         </items>
+      </ToolBar>
+      <TableView layoutY="40.0" prefHeight="362.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="516.0" text="Lists" />
+          <TableColumn prefWidth="83.0" text="Completed?" />
+        </columns>
+      </TableView>
+      <Line endX="67.0" endY="36.29290771484375" layoutX="450.0" layoutY="365.0" startX="67.0" startY="-325.0" />
+   </children>
+</AnchorPane>
