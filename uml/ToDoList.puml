@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ToDoList{
++main()
++start()
+}
+class StartupMenu{
++ViewAll()
++MakeItemList()
++DeleteItemList()
+}
+class DeleteItemList{
++whichItem()
++whichList()
+}
+class MakeItemList{
++NewEditItem()
++NewList()
+}
+class confirmDelete{
+yes
+no
+}
+class ListBuilder{
++NewEditItem()
++NewList()
++DeleteItemList()
+Search with filters
+}
+openjfx.Application <|- ToDoList
+ToDoList --> StartupMenu
+StartupMenu --> DeleteItemList
+StartupMenu --> MakeItemList
+StartupMenu --> ListBuilder
+DeleteItemList --> whichItem
+DeleteItemList --> whichList
+MakeItemList --> NewEditItem
+MakeItemList --> NewList
+whichItem <--> confirmDelete
+whichList <--> confirmDelete
+confirmDelete --> ListBuilder
+NewEditItem <--> ListBuilder
+NewList <--> ListBuilder
+ListBuilder --> DeleteItemList
+
+@enduml

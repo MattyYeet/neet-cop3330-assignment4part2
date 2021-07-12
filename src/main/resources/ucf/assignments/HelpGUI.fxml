@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.HelpController">
+   <children>
+      <DialogPane contentText="The Add button will allow you to add a new item to the list given that you have added a description and due date.&#10;&#10;For the Edit button to work, you must first select an item to be edited, from there, it will pull up the description of that item and due date on the left. After you make your desired changed, click edit and the item will be changed.&#10;&#10;The Remove button will simply deleted the selected item.&#10;&#10;The Save button will allow you to save the list of items to a TXT file (text file).&#10;&#10;The Load button will allow you to bring up a TXT file (text file) and look at those items.&#10;&#10;The Help button brought you here!&#10;&#10;The Completed? checkbox is a filter for the search bar, so if you know the item you're looking for has been completed, you can check that to make it easier.&#10;&#10;Thanks to Rey for the Help Screen idea, i guess? idk why but here you go Rey :)" headerText="   HELP MENU" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" />
+      <ToolBar layoutY="360.0" prefHeight="40.0" prefWidth="600.0">
+         <items>
+            <Button mnemonicParsing="false" onAction="#back" text="Return" />
+         </items>
+      </ToolBar>
+      <ToolBar prefHeight="31.0" prefWidth="600.0">
+         <items>
+            <Label text="Help Menu" />
+         </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

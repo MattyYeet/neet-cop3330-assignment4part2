@@ -26,5 +26,5 @@ test {
 }
 
 application{
-    mainClassName = 'ucf.assignments.ToDoList'
+    mainClassName = 'ucf.assignments.NewToDoListApp'
 }
