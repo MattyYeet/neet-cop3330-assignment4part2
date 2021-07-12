@@ -11,11 +11,8 @@ package ucf.assignments;
 //One thing that did make this assignment easier was the Items.java class where its basically an object class, so i can set up the items better
 //Whoever grades this, im sorry if its messy, but please give me honest feedback, I would appreciate it more than i can express, thank you
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -48,8 +45,7 @@ public class ListMainController implements Initializable {
 
     static CheckBox check = new CheckBox();
 
-    public ListMainController(MenuBar fileMenu) {
-        this.fileMenu = fileMenu;
+    public ListMainController(){
     }
 
     public static ObservableList<Items> getPeople(){
@@ -63,7 +59,6 @@ public class ListMainController implements Initializable {
     }
 
     ObservableList<Items> observableItemList = FXCollections.observableArrayList();
-
 
     private void filterItemList(String oldValue, String newValue) {
         //First attempt at making a filter
@@ -85,38 +80,46 @@ public class ListMainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Part of making the first filter
-        /*FilteredList<Items> checkList = new FilteredList<>();
-        tableView.setItems(checkList);
+        //FilteredList<Items> checkList = new FilteredList<>();
+        //tableView.setItems(checkList);
 
-        filterSearch.textProperty().addListener(new ChangeListener<String>() {
+        /*filterSearch.textProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue observable, String oldValue, String newValue) {
                 filterItemList((String) oldValue, (String) newValue);
             }
         });*/
 
         //initializing the table and columns
-        tableView.setItems(getPeople());
-        tableView.getColumns().addAll(DescriptionCol, DateCol, doneColumn);
-        DescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
-        DateCol.setCellValueFactory(new PropertyValueFactory<>("dateDue"));
-        doneColumn.setCellValueFactory(new PropertyValueFactory<>("done"));
+        try {
 
 
-        //My failed attempts at trying to make the cells editable, please let me know what I did wrong
-        tableView.setEditable(true);
-        //DescriptionCol.setCellValueFactory(TextFieldTableCell.forTableColumn());
-        //DateCol.setCellValueFactory(TextFieldTableCell.<Items>forTableColumn());
+            DescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+            DateCol.setCellValueFactory(new PropertyValueFactory<>("dateDue"));
+            doneColumn.setCellValueFactory(new PropertyValueFactory<>("done"));
+
+            tableView.setItems(getPeople());
+
+            tableView.getColumns().addAll(DescriptionCol, DateCol, doneColumn);
+
+            //My failed attempts at trying to make the cells editable, please let me know what I did wrong
+            tableView.setEditable(true);
+            //DescriptionCol.setCellValueFactory(TextFieldTableCell.forTableColumn());
+            //DateCol.setCellValueFactory(TextFieldTableCell.forTableColumn());
+        }
+        catch (Exception e){
+            System.out.println("fuuuuuuuuuuuuck");
+        }
     }
 
 
     //These first two methods were part of trying to make the cells editable
     public void changeDescriptionColumn(Event e){
         //Items itemSelected = tableView.getSelectionModel().getSelectedItem();
-        //itemSelected.setDescription(editedCell.getNewValue().toString());
-        TableColumn.CellEditEvent<Items, String> cellEditEvent;
+        //itemSelected.setDescription(edittedCell.getNewValue().toString());
+        /*TableColumn.CellEditEvent<Items, String> cellEditEvent;
         cellEditEvent = (TableColumn.CellEditEvent<Items, String>) e;
         Items item = cellEditEvent.getRowValue();
-        item.setDescription(cellEditEvent.getNewValue());
+        item.setDescription(cellEditEvent.getNewValue());*/
     }
     public void changeDateColumn(TableColumn.CellEditEvent edittedCell){
         Items itemSelected = tableView.getSelectionModel().getSelectedItem();
@@ -146,7 +149,7 @@ public class ListMainController implements Initializable {
 
     //This was the original plan for editing the items, I couldnt figure out how to
     //take what was already there and throw it back in the fields
-    public void editItem() throws IOException {
+    public void editItem(){
         Items item = tableView.getSelectionModel().getSelectedItem();
         item.setDescription(itemDesc.getText());
         item.setDateDue(dueDate.getValue());
@@ -157,7 +160,7 @@ public class ListMainController implements Initializable {
     }
 
     //Removes an item
-    public void deleteItem() throws IOException {
+    public void deleteItem(){
         ObservableList<Items> itemSelected, allItems;
         allItems = tableView.getItems();
         itemSelected = tableView.getSelectionModel().getSelectedItems();
@@ -170,7 +173,7 @@ public class ListMainController implements Initializable {
     }
 
     //Loading a list
-    public void loadList() throws IOException {
+    public void loadList(){
         DirectoryChooser directoryChooser = new DirectoryChooser();
         /*Collection<Items> list = Files.readAllLines(new File("").toPath())
                 .stream().map(line -> {String[] details = line.split(",");{LocalDate[] dates = line.split(",")}
@@ -190,7 +193,7 @@ public class ListMainController implements Initializable {
                 outWrite.write(item.toString());
                 outWrite.newLine();
             }
-            System.out.println(observableItemList.toString());
+            System.out.println(observableItemList);
             outWrite.close();
         } catch (IOException e){
             System.out.println("Sorry, an error happened");
