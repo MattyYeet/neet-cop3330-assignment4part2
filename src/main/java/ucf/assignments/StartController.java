@@ -15,7 +15,7 @@ public class StartController {
 
     public void viewAll() throws IOException {
         ViewChanger.stage.close();
-        ViewChanger.changeTo(View.MAIN);
+        ViewChanger.newWindow(View.MAIN);
     }
     public void loadList(){
         DirectoryChooser directoryChooser = new DirectoryChooser();
